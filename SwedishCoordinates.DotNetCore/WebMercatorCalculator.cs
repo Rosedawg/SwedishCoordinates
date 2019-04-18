@@ -1,17 +1,16 @@
-﻿namespace SwedishCoordinates
-{
-    using System;
+﻿using System;
 
+namespace SwedishCoordinates
+{
     public class WebMercatorCalculator
     {
         private const double EarthRadius = 6378137;
+        public MidpointRounding Rounding { get; set; }
 
         public WebMercatorCalculator()
         {
-            this.Rounding = MidpointRounding.AwayFromZero;
+            Rounding = MidpointRounding.AwayFromZero;
         }
-
-        public MidpointRounding Rounding { get; set; }
 
         // double y2lat_m(double y) { return rad2deg(2 * atan(exp((y / earth_radius))) - M_PI / 2); }
         public double YToLatitude(double y, int decimals = -1)
@@ -21,14 +20,14 @@
                     Math.Exp(y / EarthRadius))) - (Math.PI / 2));
 
             return decimals == -1
-                    ? latitude 
+                    ? latitude
                     : Math.Round(latitude, decimals, this.Rounding);
         }
 
         // double lat2y_m(double lat) { return earth_radius * log(tan(M_PI / 4 + deg2rad(lat) / 2)); }
         public double LatitudeToY(double latitude, int decimals = -1)
         {
-            var y = EarthRadius * 
+            var y = EarthRadius *
                 Math.Log(
                     Math.Tan(
                         (Math.PI / 4.0) + (this.DegreesToRadians(latitude) / 2)));

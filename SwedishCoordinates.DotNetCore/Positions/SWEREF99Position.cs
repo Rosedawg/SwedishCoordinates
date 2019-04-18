@@ -22,11 +22,10 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+using SwedishCoordinates.Classes;
 
 namespace SwedishCoordinates.Positions
 {
-    using SwedishCoordinates.Classes;
-
     public class SWEREF99Position : Position
     {
         public enum SWEREFProjection
@@ -71,7 +70,7 @@ namespace SwedishCoordinates.Positions
             this.Projection = projection;
         }
 
-                /// <summary>
+        /// <summary>
         /// Create a RT90 position by converting a WGS84 position
         /// </summary>
         /// <param name="position">WGS84 position to convert</param>
@@ -159,13 +158,8 @@ namespace SwedishCoordinates.Positions
         }
 
         public SWEREFProjection Projection { get; set; }
-        public string ProjectionString
-        {
-            get
-            {
-                return this.GetProjectionString(this.Projection);
-            }
-        }
+
+        public string ProjectionString => GetProjectionString(Projection);
 
         public override string ToString()
         {

@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 
 namespace SwedishCoordinates.Tests
 {
-    using System.IO;
-    using System.Security.AccessControl;
-
-    using NUnit.Framework;
-
     [TestFixture]
     public class CoordinateSystemTypeCalculatorTests
     {

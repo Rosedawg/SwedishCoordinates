@@ -1,9 +1,8 @@
-﻿namespace SwedishCoordinates.Tests
+﻿using System;
+using NUnit.Framework;
+
+namespace SwedishCoordinates.Tests
 {
-    using System;
-
-    using NUnit.Framework;
-
     [TestFixture]
     public class WebMercatorCalculatorTests
     {

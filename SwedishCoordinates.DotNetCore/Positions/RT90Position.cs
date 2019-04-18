@@ -23,9 +23,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+using SwedishCoordinates.Classes;
+
 namespace SwedishCoordinates.Positions
 {
-    using SwedishCoordinates.Classes;
 
     public class RT90Position : Position
     {
@@ -45,7 +46,7 @@ namespace SwedishCoordinates.Positions
         /// <param name="x">X value</param>
         /// <param name="y">Y value</param>
         public RT90Position(double x, double y)
-            :base(x, y, Grid.RT90)
+            : base(x, y, Grid.RT90)
         {
             this.Projection = RT90Projection.rt90_2_5_gon_v;
         }
@@ -77,8 +78,6 @@ namespace SwedishCoordinates.Positions
             this.Longitude = lat_lon[1];
             this.Projection = rt90projection;
         }
-
-        
 
         /// <summary>
         /// Convert the position to WGS84 format
@@ -129,15 +128,10 @@ namespace SwedishCoordinates.Positions
 
             return retVal;
         }
-        
+
         public RT90Projection Projection { get; set; }
-        public string ProjectionString
-        {
-            get
-            {
-                return this.GetProjectionString(this.Projection);
-            }
-        }
+
+        public string ProjectionString => GetProjectionString(Projection);
 
         public override string ToString()
         {

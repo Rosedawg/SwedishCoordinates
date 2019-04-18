@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SwedishCoordinates.Classes;
 
 namespace SwedishCoordinates.Positions
 {
-    using SwedishCoordinates.Classes;
 
     public class WebMercatorPosition : Position
     {

@@ -22,11 +22,10 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+using System;
 
 namespace SwedishCoordinates.Classes
 {
-    using System;
-
     /*
      * .NET-implementation of "Gauss Conformal Projection 
      * (Transverse Mercator), Krügers Formulas".
@@ -338,19 +337,17 @@ namespace SwedishCoordinates.Classes
             return lat_lon;
         }
 
-
-        private double math_sinh(double value) {
+        private double math_sinh(double value)
+        {
             return 0.5 * (Math.Exp(value) - Math.Exp(-value));
         }
-        private double math_cosh(double value) {
+        private double math_cosh(double value)
+        {
             return 0.5 * (Math.Exp(value) + Math.Exp(-value));
         }
-        private double math_atanh(double value) {
+        private double math_atanh(double value)
+        {
             return 0.5 * Math.Log((1.0 + value) / (1.0 - value));
         }
-
     }
-
-
-
 }

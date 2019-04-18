@@ -22,14 +22,13 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+using System;
+using System.Globalization;
+
+using SwedishCoordinates.Classes;
 
 namespace SwedishCoordinates.Positions
 {
-    using System;
-    using System.Globalization;
-
-    using SwedishCoordinates.Classes;
-
     public class WGS84Position : Position
     {
         public enum WGS84Format
@@ -83,7 +82,7 @@ namespace SwedishCoordinates.Positions
             else if (format == WGS84Format.DegreesMinutes || format == WGS84Format.DegreesMinutesSeconds)
             {
                 int firstValueEndPos = 0;
-                
+
                 switch (format)
                 {
                     case WGS84Format.DegreesMinutes:
@@ -220,7 +219,6 @@ namespace SwedishCoordinates.Positions
                 Math.Round(seconds, 5).ToString(CultureInfo.InvariantCulture));
         }
 
-
         private double ParseValueFromDmString(string value, char positiveChar)
         {
             if (string.IsNullOrEmpty(value))
@@ -242,7 +240,7 @@ namespace SwedishCoordinates.Positions
 
             if (retVal > 90)
             {
-               return double.MinValue;
+                return double.MinValue;
             }
 
             if (direction == positiveChar || direction == '-')
@@ -259,7 +257,7 @@ namespace SwedishCoordinates.Positions
             {
                 return double.MinValue;
             }
-            
+
             double retVal;
 
             var direction = value[0];
@@ -288,7 +286,7 @@ namespace SwedishCoordinates.Positions
             {
                 retVal *= -1;
             }
-            
+
             return retVal;
         }
 

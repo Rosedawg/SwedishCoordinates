@@ -1,9 +1,8 @@
 ﻿using SwedishCoordinates.Classes;
+using SwedishCoordinates.Positions;
 
 namespace SwedishCoordinates
 {
-    using SwedishCoordinates.Positions;
-
     public static class PositionConverter
     {
         public static RT90Position ToRt90(this Position pos)
@@ -11,13 +10,13 @@ namespace SwedishCoordinates
             switch (pos.GridFormat)
             {
                 case Grid.RT90:
-                    return (RT90Position) pos;
+                    return (RT90Position)pos;
                 case Grid.SWEREF99:
-                    return ToRt90((SWEREF99Position) pos);
+                    return ToRt90((SWEREF99Position)pos);
                 case Grid.WGS84:
-                    return ToRt90((WGS84Position) pos);
+                    return ToRt90((WGS84Position)pos);
                 case Grid.WebMercator:
-                    return ToRt90((WebMercatorPosition) pos);
+                    return ToRt90((WebMercatorPosition)pos);
             }
 
             return null;

@@ -1,13 +1,10 @@
 ﻿using SwedishCoordinates.Classes;
+using System;
+using NUnit.Framework;
+using SwedishCoordinates.Positions;
 
 namespace SwedishCoordinates.Tests
 {
-    using System;
-
-    using NUnit.Framework;
-
-    using SwedishCoordinates.Positions;
-
     [TestFixture]
     public class PositionConverterTests
     {
